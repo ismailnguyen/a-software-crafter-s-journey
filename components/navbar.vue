@@ -1,0 +1,68 @@
+<template>
+  <nav class="navbar is-transparent is-light" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <h1 class="navbar-item">
+            A Software Crafter's Journey
+          </h1>
+        </a>
+        
+
+      <a class="navbar-burger burger" aria-label="menu" aria-expanded="false" v-on:click="openMenu()" v-bind:class="{ 'is-active': isNavbarMenuOpened }">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div class="navbar-menu" v-bind:class="{ 'is-active': isNavbarMenuOpened }">
+      <div class="navbar-start">
+        <!-- <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Tags
+          </a>
+
+          <div class="navbar-dropdown">
+            <a class="navbar-item">
+              Soft skills
+            </a>
+            <a class="navbar-item">
+              Méthodologie
+            </a>
+            <a class="navbar-item">
+              Bonne pratique
+            </a>
+          </div>
+        </div> -->
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-danger" href="http://la-combe-du-lion-vert.fr/" target="_blank">
+              <strong>&Agrave; propos de nous</strong>
+            </a>
+            <a class="button is-light" href="https://github.com/ismailnguyen/a-software-crafter-s-journey" target="_blank">
+              Contribuer
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isNavbarMenuOpened: false
+    }
+  },
+  methods: {
+    openMenu: function () {
+        this.isNavbarMenuOpened = !this.isNavbarMenuOpened;
+    }
+  }
+}
+</script>

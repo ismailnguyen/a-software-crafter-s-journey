@@ -1,5 +1,5 @@
 <template>
-    <a class="box" :href="articleUrl">
+    <nuxt-link class="box" :to="articleUrl">
         <article class="media">
             <div class="media-content">
                 <div class="content">
@@ -34,7 +34,7 @@
                 </nav>
             </div>
         </article>
-    </a>
+    </nuxt-link>
 </template>
 
 <script>

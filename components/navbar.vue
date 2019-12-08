@@ -39,10 +39,10 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-danger" href="http://la-combe-du-lion-vert.fr/" target="_blank">
+            <a class="button is-danger" :href="aboutUsLink" target="_blank">
               <strong>&Agrave; propos de nous</strong>
             </a>
-            <a class="button is-light" href="https://github.com/ismailnguyen/a-software-crafter-s-journey" target="_blank">
+            <a class="button is-light" :href="contributionLink" target="_blank">
               Contribuer
             </a>
           </div>
@@ -56,7 +56,9 @@
 export default {
   data() {
     return {
-      isNavbarMenuOpened: false
+      isNavbarMenuOpened: false,
+      aboutUsLink: 'http://la-combe-du-lion-vert.fr/',
+      contributionLink: 'https://github.com/ismailnguyen/a-software-crafter-s-journey/tree/master/articles'
     }
   },
   methods: {

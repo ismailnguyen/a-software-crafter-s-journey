@@ -2,12 +2,13 @@
     <section class="section has-background-light">
         <div class="container is-widescreen">
             
-            <h1 class="title has-text-centered">{{ metadata.title }}</h1>
+            <h1 class="title has-text-centered">{{ article.title }}</h1>
+
             <p class="subtitle is-6 has-text-centered">
                 <small>
-                    par {{ metadata.author }}
+                    par {{ article.author }}
                     -
-                    <time :datetime="metadata.published_date">{{ metadata.published_date }}</time>
+                    <time :datetime="article.published_date">{{ article.published_date }}</time>
                 </small>
             </p>
 
@@ -17,39 +18,28 @@
                         <div class="content">
                             <nav class="level is-mobile">
                                 <div class="level-left">
-                                    <span class="tag level-item" v-for="(tag, index) in tags" :key="index">
-                                        {{ tag }}
-                                    </span>
+                                    <Tags :article="article" />
                                 </div>
                                 <div class="level-right">
-                                    <a class="level-item" aria-label="like" :href="twitterShareUrl" target="_blank">
-                                        <span class="icon is-small">
-                                            <i class="fab fa-twitter" aria-hidden="true"></i>
-                                        </span>
-                                        &nbsp;Partager
-                                    </a>
+                                    <TwitterShareLink :article="article" />
                                 </div>
                             </nav>
+
                             <p>
-                                {{ metadata.short_description }}
+                                {{ article.description }}
                             </p>
+
                             <hr class="divider" />
 
-                            <div v-html="htmlContent" class="has-text-justified	"></div>
+                            <div v-html="article.content" class="has-text-justified	"></div>
                         </div>
+                        
                         <nav class="level is-mobile">
                             <div class="level-left">
-                                <span class="tag level-item" v-for="(tag, index) in tags" :key="index">
-                                    {{ tag }}
-                                </span>
+                                <Tags :article="article" />
                             </div>
                             <div class="level-right">
-                                <a class="level-item" aria-label="like" :href="twitterShareUrl" target="_blank">
-                                    <span class="icon is-small">
-                                        <i class="fab fa-twitter" aria-hidden="true"></i>
-                                    </span>
-                                    &nbsp;Partager
-                                </a>
+                                <TwitterShareLink :article="article" />
                             </div>
                         </nav>
                     </div>
@@ -61,28 +51,29 @@
 </template>
 
 <script>
+    import TwitterShareLink from '~/components/twitterShareLink.vue'
+    import Tags from '~/components/tags.vue'
+
     export default {
+        components: {
+            TwitterShareLink,
+            Tags
+        },
         async asyncData({params}) {
-            const fileContent = await import(`~/articles/${params.article}.md`);
+            const fileName = `${params.article}.md`;
+            const fileContent = await import(`~/articles/${fileName}`);
             
             return {
-                metadata: fileContent.attributes,
-                htmlContent: fileContent.html
+                article: {
+                    title: fileContent.attributes.title,
+                    author: fileContent.attributes.author,
+                    published_date: fileContent.attributes.published_date,
+                    description: fileContent.attributes.description,
+                    tags: fileContent.attributes.tags.split(','),
+                    file_name: fileName,
+                    content: fileContent.html
+                }
             };
-        },
-        computed: {
-            tags: function () {
-                return this.metadata.tags.split(',');
-            },
-            twitterShareUrl: function () {
-                return 'https://twitter.com/intent/tweet' +
-                        '?original_referer=https%3A%2F%2Fwww.arolla.fr%2Fblog%2F' +
-                        '&ref_src=twsrc%5Etfw' +
-                        '&text=Passer%20%C3%A0%20la%20vitesse%20sup%C3%A9rieure%20gr%C3%A2ce%20%C3%A0%20la%20programmation%20r%C3%A9active' +
-                        '&tw_p=tweetbutton' +
-                        '&url=https%3A%2F%2Fwww.arolla.fr%2Fblog%2F2019%2F11%2Fpasser-a-vitesse-superieure-grace-a-programmation-reactive%2F' +
-                        '&via=ArollaFr';
-            }
         }
     }
 </script>

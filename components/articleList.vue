@@ -6,10 +6,10 @@
 
       <div class="columns is-centered" v-for="(article, i) in articles" :key="i" v-if="i % 2 == 0">
         <div class="column" >
-          <Article :articleData="article" />
+          <Article :article="article" />
         </div>
         <div class="column" v-if="articles[i+1]">
-          <Article :articleData="articles[i+1]" />
+          <Article :article="articles[i+1]" />
         </div>
       </div>
 
@@ -59,7 +59,7 @@
               title: fileContent.attributes.title,
               author: fileContent.attributes.author,
               published_date: fileContent.attributes.published_date,
-              short_description: fileContent.attributes.short_description,
+              description: fileContent.attributes.description,
               tags: fileContent.attributes.tags.split(','),
               file_name: fileName
           };

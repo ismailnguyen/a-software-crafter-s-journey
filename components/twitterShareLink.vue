@@ -24,12 +24,9 @@
         computed: {
             articleUrl: function () {
                 if (process.browser)
-                    return window.location.origin + '/' + this.articleFileNameWithoutExtension;
+                    return `${ window.location.origin }${ this.article.route }`;
 
-                return this.article.file_name;
-            },
-            articleFileNameWithoutExtension: function () {
-                return this.article.file_name.substr(0, this.article.file_name.lastIndexOf('.'));
+                return this.article.route;
             },
             twitterShareUrl: function () {
                 return 'https://twitter.com/intent/tweet' +

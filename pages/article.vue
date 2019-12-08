@@ -83,8 +83,8 @@
         },
         async asyncData({ route }) {
             try {  
-                const fileName = route.path;
-                const fileContent = await import(`~/articles${fileName}.md`);
+                const fileName = `${ route.path }.md`;
+                const fileContent = await import(`~/articles${fileName}`);
                         
                 return {
                     article: {
@@ -94,7 +94,8 @@
                         description: fileContent.attributes.description,
                         tags: fileContent.attributes.tags.split(','),
                         file_name: fileName,
-                        content: fileContent.html
+                        content: fileContent.html,
+                        route: route.path
                     }
                 };
             } catch (err) {

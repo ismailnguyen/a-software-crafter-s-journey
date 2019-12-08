@@ -25,6 +25,15 @@ module.exports = {
   generate: {
     routes: files
   },
+  router: {
+    extendRoutes (routes, resolve) {
+      routes.push({
+        name: 'custom',
+        path: '*',
+        component: resolve(__dirname, 'pages/article.vue')
+      })
+    }
+  },
   /*
   ** Build configuration
   */

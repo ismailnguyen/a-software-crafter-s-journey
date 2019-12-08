@@ -7,8 +7,7 @@
 ### Create your blog post
 - Create a markdown file
   - with `.md` extension
-  - starting with the date of publication (eg. `2019-12-08-your-article-name`)
-  - use `-` instead of space
+  - use `-` instead of space (eg. `your-article-name.md`)
 - Write your blog post into the previously created markdown file
 
 *See more on markdown format :
@@ -18,6 +17,9 @@
 - **Fork** the repository (https://github.com/ismailnguyen/a-software-crafter-s-journey)
 - Checkout a branch (eg. `article/you-article-name`)
 - **Add** your article (markdown file) in the `articles` folder
+    - (Recommended) Put your article file into subfolders (eg. `~/articles/2019/12/your-article-name.md`)
+        - A folder to indicate the year of publication
+        - A second folder to indicate the month of publication
 - **Commit** your changes into your branch
 - Make a **pull request** from your forked branch into `master` (https://github.com/ismailnguyen/a-software-crafter-s-journey/compare)
 - Wait for **merge approval**, then **merge** on `master`

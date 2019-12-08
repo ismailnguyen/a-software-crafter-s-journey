@@ -2,7 +2,7 @@
   <nav class="navbar is-transparent is-light" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="/">
-          <h1 class="navbar-item">
+          <h1 class="navbar-item has-text-danger has-text-weight-bold is-family-monospace">
             A Software Crafter's Journey
           </h1>
         </a>
@@ -53,18 +53,24 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      isNavbarMenuOpened: false,
-      aboutUsLink: 'http://la-combe-du-lion-vert.fr/',
-      contributionLink: 'https://github.com/ismailnguyen/a-software-crafter-s-journey/tree/master/articles'
-    }
-  },
-  methods: {
-    openMenu: function () {
-        this.isNavbarMenuOpened = !this.isNavbarMenuOpened;
+  export default {
+    data() {
+      return {
+        isNavbarMenuOpened: false,
+        aboutUsLink: 'http://la-combe-du-lion-vert.fr/',
+        contributionLink: 'https://github.com/ismailnguyen/a-software-crafter-s-journey/tree/master/articles'
+      }
+    },
+    methods: {
+      openMenu: function () {
+          this.isNavbarMenuOpened = !this.isNavbarMenuOpened;
+      }
     }
   }
-}
 </script>
+
+<style>
+  .logo {
+
+  }
+</style>

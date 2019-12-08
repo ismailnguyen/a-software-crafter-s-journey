@@ -2,10 +2,10 @@
   <section class="section has-background-light">
     <div class="container">
 
-      <h1 class="title">Derniers articles</h1>
+      <h1 class="title">{{ lastArticlesTitle }}</h1>
 
       <div class="columns is-centered" v-for="(article, i) in articles" :key="i" v-if="i % 2 == 0">
-        <div class="column" >
+        <div class="column">
           <Article :article="article" />
         </div>
         <div class="column" v-if="articles[i+1]">
@@ -21,49 +21,14 @@
   import Article from '~/components/articleCard.vue'
 
   export default {
+    props: ['articles'],
     components: {
       Article
     },
     data () {
       return {
-        articles: []
+        lastArticlesTitle: 'Derniers articles'
       }
     },
-    mounted: function () {
-      this.fetchArticles()
-           .then(fetchedArticles => this.articles = fetchedArticles);
-    },
-    methods: {
-      fetchArticles: async function () {
-        const articleFiles = require.context(
-          '@/articles',
-          true,
-          /^.*\.md$/
-        );
-
-        let articles = [];
-
-        articleFiles.keys().forEach(articleFile => {
-          let fileName = articleFile.substr(2, articleFile.length);
-
-          this.fetchArticle(fileName)
-              .then(article => articles.push(article));
-        });
-        
-        return articles;
-      },
-      fetchArticle: async function (fileName) {
-          const fileContent = await import(`~/articles/${fileName}`);
-            
-          return {
-              title: fileContent.attributes.title,
-              author: fileContent.attributes.author,
-              published_date: fileContent.attributes.published_date,
-              description: fileContent.attributes.description,
-              tags: fileContent.attributes.tags.split(','),
-              file_name: fileName
-          };
-      }
-    }
   }
 </script>

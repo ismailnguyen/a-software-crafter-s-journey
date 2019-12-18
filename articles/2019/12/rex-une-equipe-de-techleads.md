@@ -1,4 +1,10 @@
-# REX – Une équipe de Techleads 
+---
+title: REX – Une équipe de Techleads
+author: Ubald de Bellabre
+published_date: 17 Décembre 2019
+description: Retour d'expérience de l'organisation d'une équipe résiliente.
+tags: Agilité, Organisation, Techlead
+---
 
 J'ai eu l'occasion de travailler dans une équipe avec une organisation particulière qui m'a ouvert les yeux sur 
 l’organisation d'une équipe agile. En effet, lorsque j'ai rejoint cette équipe, j'avais déjà plusieurs années 

@@ -17,6 +17,19 @@
 - **Fork** the repository (https://github.com/ismailnguyen/a-software-crafter-s-journey)
 - Checkout a branch (eg. `article/you-article-name`)
 - **Add** your article (markdown file) in the `articles` folder
+    - Add meta datas on top of your markdown file within 3 dashs (Mandatory for the article to be visible on the home page)
+        - Available meta datas: title, author, published_date, description, tags
+          - tags should be separated with commas
+        - Example :
+        ```
+        ---
+        title: Ton Code fait partie du patrimoine culturel
+        author: Jordan Nourry
+        published_date: 29 Mai 2018
+        description: Tout le monde revient de la Devoxx France avec des étoiles plein les yeux. Après cette 7ème édition, tous les développeurs reviennent avec un tas d’idées de refactoring qui vont changer la face du monde. Les projets du bassin parisien n’ont qu’à bien se tenir !!
+        tags: Devoxx, Futur, France, Code, Engineering
+        ---
+        ```
     - (Recommended) Put your article file into subfolders (eg. `~/articles/2019/12/your-article-name.md`)
         - A folder to indicate the year of publication
         - A second folder to indicate the month of publication

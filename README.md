@@ -71,3 +71,6 @@ For detailed explanation on how things work, checkout the [Nuxt.js docs](https:/
 
 ### Filter
 - Only show articles corresponding to user's selected tag
+
+### Comments
+- Add a comments section for each article

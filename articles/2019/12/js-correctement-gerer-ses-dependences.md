@@ -30,7 +30,8 @@ Pour en générer un nouveau, vous pouvez utiliser la [commande](https://docs.np
 ```
 # npm init [option]
 ```
-:information_source: Vous pouvez utiliser l'option `--force` pour passer le wizard et générer directement un [fichier par défaut](./ressources/package-default.json).  
+:information_source: Vous pouvez utiliser l'option `--force` pour passer le wizard et générer directement un fichier par
+défaut.  
 :information_source: Les attributs entre crochets sont optionnels, la commande fonctionnera pareil sans.
 
 ### Ajouter une nouvelle dépendance

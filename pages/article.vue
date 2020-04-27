@@ -112,7 +112,7 @@
         },
         head () {
             return {
-                title: `${ this.article ? this.article.title : 'Erreur 404' } - A Software Crafter's Journey`,
+                title: `${ this.article ? this.article.title : 'Erreur 404' } - ${process.env.SITE_NAME}`,
             }
         }
     }

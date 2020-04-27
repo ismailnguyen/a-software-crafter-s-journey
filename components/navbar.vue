@@ -3,11 +3,10 @@
     <div class="navbar-brand">
         <a class="navbar-item" href="/">
           <h1 class="navbar-item has-text-danger has-text-weight-bold is-family-monospace">
-            A Software Crafter's Journey
+            {{ title }}
           </h1>
         </a>
         
-
       <a class="navbar-burger burger" aria-label="menu" aria-expanded="false" v-on:click="openMenu()" v-bind:class="{ 'is-active': isNavbarMenuOpened }">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -56,9 +55,10 @@
   export default {
     data() {
       return {
+        title: process.env.siteName,
         isNavbarMenuOpened: false,
-        aboutUsLink: 'http://la-combe-du-lion-vert.fr/',
-        contributionLink: 'https://github.com/ismailnguyen/a-software-crafter-s-journey/tree/master/articles'
+        aboutUsLink: process.env.companyUrl,
+        contributionLink: process.env.contributionUrl
       }
     },
     methods: {
@@ -68,9 +68,3 @@
     }
   }
 </script>
-
-<style>
-  .logo {
-
-  }
-</style>

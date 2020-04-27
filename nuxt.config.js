@@ -1,18 +1,23 @@
 import glob from 'glob'
+import environmentConfiguration from './config'
 
 let files = glob.sync('**/*.md', { cwd: 'articles' })
 files = files.map(file => file.substr(0, file.lastIndexOf('.')))
 
 module.exports = {
   /*
+  * Configuration
+  */
+  env: environmentConfiguration,
+  /*
   ** Headers of the page
   */
   head: {
-    title: "A Software Crafter's Journey - La Combe du Lion Vert",
+    title: `${environmentConfiguration.siteName} - ${environmentConfiguration.companyName}`,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui' },
-      { hid: 'description', name: 'description', content: "A Software Crafter's Journey" }
+      { hid: 'description', name: 'description', content: process.env.SITE_DESCRIPTION || "A Software Crafter's Journey" }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -21,7 +26,7 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: environmentConfiguration.progressBarColor },
   generate: {
     routes: files
   },
@@ -62,7 +67,7 @@ module.exports = {
       '@nuxtjs/sitemap'
   ],
   sitemap: {
-      hostname: 'http://la-combe-du-lion-vert.fr/'
+      hostname: environmentConfiguration.siteUrl
   }
 }
 

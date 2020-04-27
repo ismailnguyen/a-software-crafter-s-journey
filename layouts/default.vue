@@ -3,7 +3,6 @@
     <Navbar />
     <nuxt/>
     <Footer />
-    <script defer src="https://www.ismailnguyen.com/resources/js/vendor/fontawesome.js"></script>
   </div>
 </template>
 
@@ -12,16 +11,25 @@
   import Footer from '~/components/footer.vue'
 
   export default {
+    data () {
+      return {
+        bodyBackgroundColor: process.env.BODY_BACKGROUND_COLOR
+      }
+    },
     components: {
       Navbar,
       Footer
+    },
+    beforeCreate () {
+      if (process.client) {
+        document.body.style = `${this.bodyBackgroundColor} !important`;
+      }
     }
   }
 </script>
 
 <style>
- body {
-   background-color: #f5f5f5 !important;
-   min-height: 100vh;
- }
+  body {
+    min-height: 100vh;
+  }
 </style>

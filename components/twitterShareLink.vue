@@ -33,7 +33,7 @@
                         `?text=${ this.article.title }` +
                         `&url=${ this.articleUrl }` +
                         `&hashtags=${ this.article.tags }` +
-                        '&via=LeLion_Vert';
+                        `&via=${process.env.TWITTER_USERNAME}`;
             }
         }
     }

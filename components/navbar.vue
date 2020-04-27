@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar is-transparent" role="navigation" aria-label="main navigation" :style="`background-color: ${ backgroundColor } !important;`">
+  <nav class="navbar is-transparent" role="navigation" aria-label="main navigation" :style="`background-color: ${ backgroundColor };`">
     <div class="navbar-brand">
         <a class="navbar-item" href="/">
           <h1 class="navbar-item has-text-danger has-text-weight-bold is-family-monospace">

@@ -1,6 +1,6 @@
 
 <template>
-    <footer class="footer" :style="`background-color: ${ backgroundColor } !important;`">
+    <footer class="footer" :style="`background-color: ${ backgroundColor };`">
         <div class="content has-text-centered">
             &copy; {{ currentYear }}
             <br>

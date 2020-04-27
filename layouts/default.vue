@@ -17,7 +17,7 @@
     },
     beforeCreate () {
       if (process.client) {
-        document.body.style = `background-color: ${ process.env.bodyBackgroundColor } !important;`;
+        document.body.style = `background-color: ${ process.env.bodyBackgroundColor };`;
       }
     }
   }

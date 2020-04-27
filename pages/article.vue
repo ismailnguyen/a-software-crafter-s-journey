@@ -1,5 +1,5 @@
 <template>
-    <section v-if="article" class="section has-background-light">
+    <section v-if="article" class="section" :style="`background-color: ${ backgroundColor }`">
         <div class="container is-widescreen">
             
             <nuxt-link to="/" class="button is-danger is-light is-hidden-touch">{{ goBackLabel }}</nuxt-link>
@@ -112,7 +112,8 @@
         data () {
             return {
                 goBackLabel: 'Retour aux articles',
-                publishedByLabel: 'par '
+                publishedByLabel: 'par ',
+                backgroundColor: process.env.bodyBackgroundColor
             }
         },
         head () {

@@ -9,5 +9,6 @@ export default {
     companyUrl: process.env.COMPANY_URL || 'https://ismailnguyen.com',
     twitterUsername: process.env.TWITTER_USERNAME || 'ishmaa_el',
     progressBarColor: process.env.PROGRESS_BAR_COLOR || '#3B8070',
-    bodyBackgroundColor: process.env.BODY_BACKGROUND_COLOR || '#f5f5f5'
+    bodyBackgroundColor: process.env.BODY_BACKGROUND_COLOR || '#f5f5f5',
+    googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID
 };

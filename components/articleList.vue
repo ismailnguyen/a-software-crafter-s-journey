@@ -1,5 +1,5 @@
 <template>
-  <section class="section" :style="`background-color: ${ backgroundColor } !important;`">
+  <section class="section" :style="`background-color: ${ backgroundColor };`">
     <div class="container">
 
       <h1 class="title">{{ lastArticlesTitle }}</h1>

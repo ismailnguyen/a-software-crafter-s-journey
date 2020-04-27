@@ -76,6 +76,15 @@ module.exports = {
       })
     }
   },
+  buildModules: [
+    environmentConfiguration.googleAnalyticsId ? ['@nuxtjs/google-analytics', {
+      id: environmentConfiguration.googleAnalyticsId,
+      debug: {
+        enabled: true,
+        sendHitTask: true
+      }
+    }] : ''
+  ],
   css: ['./vendor/hljs-syntax.css'],
   modules: [
       '@nuxtjs/bulma',

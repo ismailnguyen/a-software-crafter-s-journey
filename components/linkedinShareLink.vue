@@ -1,7 +1,7 @@
 <template>
-    <a class="level-item" aria-label="like" :href="twitterShareUrl" target="_blank">
+    <a class="level-item" aria-label="like" :href="linkedinShareUrl" target="_blank">
         <span class="icon is-small">
-            <fa :icon="faTwitter" />
+            <fa :icon="faLinkedinIn" />
         </span>
         &nbsp;
         <span v-if="showLabel">
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-    import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+    import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
     export default {
         props: {
@@ -30,15 +30,15 @@
 
                 return this.article.route;
             },
-            twitterShareUrl: function () {
-                return 'https://twitter.com/intent/tweet' +
-                        `?text=${ encodeURIComponent(this.article.title) }` +
+            linkedinShareUrl: function () {
+                return 'https://www.linkedin.com/shareArticle?mini=false' +
                         `&url=${ encodeURIComponent(this.articleUrl) }` +
-                        `&hashtags=${ encodeURIComponent(this.article.tags) }` +
-                        `&via=${ encodeURIComponent(process.env.twitterUsername) }`;
+                        `&title=${ encodeURIComponent(this.article.title) }` +
+                        `&summary=${ encodeURIComponent(this.article.tags) }` +
+                        `&source=${ encodeURIComponent(process.env.siteUrl) }`;
             },
-            faTwitter: function() {
-                return faTwitter
+            faLinkedinIn: function() {
+                return faLinkedinIn
             }
         }
     }

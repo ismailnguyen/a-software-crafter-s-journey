@@ -3,7 +3,7 @@
     <div class="navbar-brand">
         <a class="navbar-item" href="/">
           <h1 class="navbar-item has-text-danger has-text-weight-bold is-family-monospace">
-            {{ title }}
+            {{ siteName }}
           </h1>
         </a>
         
@@ -38,10 +38,10 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-danger" :href="aboutUsLink" target="_blank">
+            <a class="button is-danger" :href="aboutUsLink" target="_blank" rel="noopener">
               <strong>&Agrave; propos de nous</strong>
             </a>
-            <a class="button is-light" :href="contributionLink" target="_blank">
+            <a class="button is-light" :href="contributionLink" target="_blank" rel="noopener">
               Contribuer
             </a>
           </div>
@@ -55,7 +55,7 @@
   export default {
     data() {
       return {
-        title: process.env.siteName,
+        siteName: process.env.siteName,
         isNavbarMenuOpened: false,
         aboutUsLink: process.env.companyUrl,
         contributionLink: process.env.contributionUrl

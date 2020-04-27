@@ -10,7 +10,7 @@
                             <small>
                                 {{ publishedByLabel }} {{ article.author }}
                                 -
-                                <time :datetime="article.published_date">{{ article.published_date }}</time>
+                                <time :datetime="article.published_date">{{ publishedDate }}</time>
                             </small>
                         </p>
 
@@ -27,6 +27,7 @@
                 </nuxt-link>
 
                 <div class="media-right">
+                    <LinkedinShareLink :article="article" :showLabel="false" />
                     <TwitterShareLink :article="article" :showLabel="false" />
                 </div>
             </article>
@@ -36,11 +37,13 @@
 
 <script>
     import TwitterShareLink from '~/components/twitterShareLink.vue'
+    import LinkedinShareLink from '~/components/linkedinShareLink.vue'
     import Tags from '~/components/tags.vue'
 
     export default {
         props: ['article'],
         components: {
+            LinkedinShareLink,
             TwitterShareLink,
             Tags
         },
@@ -52,6 +55,21 @@
         mounted: function () {
             if (this.articleData != null)
                 this.article = this.articleData;
+        },
+        computed: {
+            publishedDate: function () {
+                return new Date(this.article.published_date).toDateString();
+            }
         }
     }
 </script>
+
+<style scoped>
+    .media-right {
+        display: flex;
+    }
+
+    .media-right > * {
+        padding-left: 10px;
+    }
+</style>

@@ -79,7 +79,10 @@ module.exports = {
   css: ['./vendor/hljs-syntax.css'],
   modules: [
       '@nuxtjs/bulma',
-      '@nuxtjs/sitemap'
+      '@nuxtjs/sitemap',
+      ['nuxt-fontawesome', {
+        component: 'fa'
+      }]
   ],
   sitemap: {
       hostname: environmentConfiguration.siteUrl

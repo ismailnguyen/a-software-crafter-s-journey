@@ -4,13 +4,19 @@
         <div class="content has-text-centered">
             &copy; {{ currentYear }}
             <br>
-            <small>A Software Crafter's Journey</small> <strong>x</strong> <small>La Combe du Lion Vert</small>
+            <small>{{ siteName }}</small> <strong>x</strong> <small>{{ companyName }}</small>
         </div>
     </footer>
 </template>
 
 <script>
     export default {
+        data() {
+            return {
+                siteName: process.env.siteName,
+                companyName: process.env.companyName
+            }
+        },
         computed: {
             currentYear: function () {
                 return new Date().getFullYear();

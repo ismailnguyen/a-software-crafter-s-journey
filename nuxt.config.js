@@ -83,8 +83,8 @@ module.exports = {
         enabled: true,
         sendHitTask: true
       }
-    }] : ''
-  ],
+    }] : false
+  ].filter(Boolean),
   css: ['./vendor/hljs-syntax.css'],
   modules: [
       '@nuxtjs/bulma',

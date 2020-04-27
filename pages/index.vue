@@ -16,16 +16,18 @@
     },
     async asyncData ({ params }) {
       let articles = [];
+      let index = 0;
 
       const files = require.context('@/articles', true, /.*\.md$/);
       const articleFiles = files.keys();
-
+      
       for (const articleFile of articleFiles) {
         let fileName = articleFile.substr(2, articleFile.length);
 
         const fileContent = await import(`~/articles/${fileName}`);
             
         articles.push({
+            index: index++,
             title: fileContent.attributes.title,
             author: fileContent.attributes.author,
             author_link: fileContent.attributes.author_link,

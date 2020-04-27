@@ -138,6 +138,10 @@
         padding-left: 10px;
     }
 
+    .level-item {
+        align-items: flex-start;
+    }
+
     .level-left {
         display: contents !important;
     }

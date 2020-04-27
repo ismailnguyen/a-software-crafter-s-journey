@@ -1,9 +1,9 @@
 ---
-title: I'm title \o/ - This should be the last article (on bottom of page), because oldest
+title: I'm title 3 \o/
 author: me
-published_date: 1970-01-01
+published_date: 2020-01-01
 description: a brief content description
-tags: comma, separated, keywords, that, helps, referencing, bots, of, the, internet
+tags: tag, description, code, blog, craft
 ---
 
 # Lorem ipsum

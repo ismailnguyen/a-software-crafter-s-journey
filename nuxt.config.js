@@ -56,12 +56,27 @@ module.exports = {
         })
       }
       
+      const hljs = require('highlight.js');
       config.module.rules.push({
         test: /\.md$/,
-        loader: 'frontmatter-markdown-loader'
+        loader: 'frontmatter-markdown-loader',
+        options: {
+          markdownIt: {
+            langPrefix: 'language-',
+            highlight: function (str, lang) {
+              if (lang && hljs.getLanguage(lang)) {
+                try {
+                  return hljs.highlight(lang, str).value;
+                } catch (__) {}
+              }
+              return '';
+            }
+          }
+        }
       })
     }
   },
+  css: ['./vendor/hljs-syntax.css'],
   modules: [
       '@nuxtjs/bulma',
       '@nuxtjs/sitemap'

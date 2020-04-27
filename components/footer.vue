@@ -1,6 +1,6 @@
 
 <template>
-    <footer class="footer has-background-light">
+    <footer class="footer" :style="`background-color: ${ backgroundColor } !important;`">
         <div class="content has-text-centered">
             &copy; {{ currentYear }}
             <br>
@@ -14,7 +14,8 @@
         data() {
             return {
                 siteName: process.env.siteName,
-                companyName: process.env.companyName
+                companyName: process.env.companyName,
+                backgroundColor: process.env.bodyBackgroundColor
             }
         },
         computed: {

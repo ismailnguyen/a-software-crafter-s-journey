@@ -1,10 +1,10 @@
 <template>
-  <section class="section has-background-light">
+  <section class="section" :style="`background-color: ${ backgroundColor } !important;`">
     <div class="container">
 
       <h1 class="title">{{ lastArticlesTitle }}</h1>
 
-      <div class="columns is-centered" v-for="(article, i) in articles" :key="i" v-if="i % 2 == 0">
+      <div class="columns is-centered" v-for="(article, i) in sortedArticles" :key="i" v-if="i % 2 == 0">
         <div class="column">
           <Article :article="article" />
         </div>
@@ -27,8 +27,14 @@
     },
     data () {
       return {
-        lastArticlesTitle: 'Derniers articles'
+        lastArticlesTitle: 'Derniers articles',
+        backgroundColor: process.env.bodyBackgroundColor
       }
     },
+    computed: {
+      sortedArticles: function () {
+        return this.articles.slice().sort((a, b) => new Date(b.published_date) - new Date(a.published_date));
+      }
+    }
   }
 </script>

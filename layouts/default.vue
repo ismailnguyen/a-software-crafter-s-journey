@@ -11,18 +11,13 @@
   import Footer from '~/components/footer.vue'
 
   export default {
-    data () {
-      return {
-        bodyBackgroundColor: process.env.BODY_BACKGROUND_COLOR
-      }
-    },
     components: {
       Navbar,
       Footer
     },
     beforeCreate () {
       if (process.client) {
-        document.body.style = `${this.bodyBackgroundColor} !important`;
+        document.body.style = `background-color: ${ process.env.bodyBackgroundColor } !important;`;
       }
     }
   }

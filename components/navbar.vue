@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar is-transparent is-light" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-transparent" role="navigation" aria-label="main navigation" :style="`background-color: ${ backgroundColor } !important;`">
     <div class="navbar-brand">
         <a class="navbar-item" href="/">
           <h1 class="navbar-item has-text-danger has-text-weight-bold is-family-monospace">
@@ -58,7 +58,8 @@
         siteName: process.env.siteName,
         isNavbarMenuOpened: false,
         aboutUsLink: process.env.companyUrl,
-        contributionLink: process.env.contributionUrl
+        contributionLink: process.env.contributionUrl,
+        backgroundColor: process.env.bodyBackgroundColor
       }
     },
     methods: {

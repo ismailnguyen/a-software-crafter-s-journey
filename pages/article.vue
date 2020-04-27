@@ -127,3 +127,17 @@
         }
     }
 </script>
+
+<style scoped>
+    .media-right {
+        display: flex;
+    }
+
+    .media-right > * {
+        padding-left: 10px;
+    }
+
+    .level-left {
+        display: contents !important;
+    }
+</style>

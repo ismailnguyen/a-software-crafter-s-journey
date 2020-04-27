@@ -1,11 +1,19 @@
 <template>
-  <ArticleList :articles="articles" />
+  <ArticleList v-if="!isLoading" :articles="articles" />
+    <div v-else>
+      <span>Chargement des articles en cours...</span>
+    </div>
 </template>
 
 <script>
   import ArticleList from '~/components/articleList.vue'
 
   export default {
+    data () {
+      return {
+        isLoading: true
+      }
+    },
     async asyncData ({ params }) {
       let articles = [];
 
@@ -30,7 +38,8 @@
       }
 
       return {
-        articles: articles
+        articles: articles,
+        isLoading: false
       }
     },
     components: {

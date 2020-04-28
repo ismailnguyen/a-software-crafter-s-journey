@@ -2,6 +2,8 @@
   "name": "crafter-journey",
   "version": "1.1.0",
   "description": "A Software Crafter's Journey",
+  "repository": "https://github.com/ismailnguyen/a-software-crafter-s-journey",
+  "license": "WTFPL (see more at www.wtfpl.net)",
   "author": "Ismaïl NGUYEN",
   "scripts": {
     "dev": "nuxt",
